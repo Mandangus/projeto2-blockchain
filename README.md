@@ -1,6 +1,7 @@
  SSC0958 - Criptomoedas e Blockchain  \\ **Projeto 2**
 # Unique Ring Signatures (URS) in Python
-
+- Antonio Rodrigues Rigolino 
+- nUSP: 11795791
 
 ## Table of Contents
 - [Overview](#overview)

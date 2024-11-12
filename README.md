@@ -1,4 +1,5 @@
-# Projeto 2 - BlockchainUnique Ring Signatures (URS) in Python
+ SSC0958 - Criptomoedas e Blockchain  \\ **Projeto 2**
+# Unique Ring Signatures (URS) in Python
 
 
 ## Table of Contents
@@ -67,7 +68,7 @@ Uses SECP256k1 elliptic curve (also used in Bitcoin) for strong security and com
 ## References
 - [NSA Suite B Implementer's Guide to FIPS 186-3](https://www.nsa.gov/ia/_files/ecdsa.pdf)
 - [SECG SEC1 Standard](https://www.secg.org/download/aid-780/sec1-v2.pdf)
-- "Unique Ring Signatures: Short and Provably Secure" ([short version](http://csiflabs.cs.ucdavis.edu/~hbzhang/romring.pdf) | [full version](http://eprint.iacr.org/2012/577.pdf))
+- "Unique Ring Signatures: Short and Provably Secure" ([full version](http://eprint.iacr.org/2012/577.pdf))
 
 ---
 

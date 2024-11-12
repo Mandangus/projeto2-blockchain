@@ -3,38 +3,37 @@ from crypto_keys import PrivateKey
 from elliptic_curve import EllipticCurveOperations
 from ring import PublicKeyRing, sign, verify
 
-# Setup elliptic curve and keys
+try:
+    n = int(input("Enter the number of public keys to add to the ring: "))
+    if n <= 0:
+        raise ValueError("Number of public keys must be a positive integer.")
+except ValueError as e:
+    print(f"Invalid input: {e}")
+    exit()
+
 curve = EllipticCurveOperations()
-private_key1 = PrivateKey(curve)
-private_key2 = PrivateKey(curve)
-private_key3 = PrivateKey(curve)
-
-# Create public key ring
 public_key_ring = PublicKeyRing()
-public_key_ring.add(private_key1.public_key)
-public_key_ring.add(private_key2.public_key)
-public_key_ring.add(private_key3.public_key)
+private_keys = []
 
-# Sign a message
+for i in range(n):
+    private_key = PrivateKey(curve)
+    private_keys.append(private_key)
+    public_key_ring.add(private_key.public_key)
+
 message = b"Visualizing the ring signature process"
-signature = sign(message, private_key1, public_key_ring)
+signature = sign(message, private_keys[0], public_key_ring)
 
-# Verification status
 is_valid = verify(message, public_key_ring, signature)
 
-# Visualization
 fig, ax = plt.subplots()
 
-# Plot the keys in the ring
 for i, public_key in enumerate(public_key_ring.public_keys):
     ax.plot(public_key.x, public_key.y, 'bo', label=f'Public Key {i+1}' if i == 0 else "")
     ax.text(public_key.x, public_key.y, f"PK{i+1}", ha='right')
 
-# Plot the signature points
 ax.plot(signature.hash_x, signature.hash_y, 'ro', label='Signature Hash')
 ax.text(signature.hash_x, signature.hash_y, "Signature Hash", ha='right')
 
-# Add legend and titles
 plt.title("Ring Signature Process Visualization")
 ax.legend()
 plt.xlabel("Elliptic Curve X Coordinate")

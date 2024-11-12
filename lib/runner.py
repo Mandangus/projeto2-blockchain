@@ -6,7 +6,6 @@ def generate_random_public_keys(curve, n):
     """Generates n random public keys."""
     public_keys = []
     for _ in range(n):
-        # Create a random private key and extract its public key
         temp_private_key = PrivateKey(curve)
         public_keys.append(temp_private_key.public_key)
     return public_keys
@@ -20,7 +19,6 @@ def main():
         print("Please enter a valid integer.")
         return
 
-    # Generate n random public keys and create the public key ring
     public_key_ring = PublicKeyRing()
     random_public_keys = generate_random_public_keys(curve, n)
     for public_key in random_public_keys:
